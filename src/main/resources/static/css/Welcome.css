@@ -1,0 +1,97 @@
+.navi{
+    box-sizing: border-box;
+    position: absolute;
+    width: 224px;
+    height: 1024px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.backtop{
+    position: absolute;
+    width: 1216px;
+    height: 96px;
+    background: #AACB8F;
+    margin-left: 224px;
+}
+.welcome{
+    position: absolute;
+    width: 618px;
+    height: 247px;
+    font-family: 'Poly';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 150px;
+    line-height: 178px;
+    color: #707070;
+    margin: 388px 328px 328px 494px;
+}
+.slogan1{
+    position: absolute;
+    width: 685px;
+    height: 83px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 50px;
+    line-height: 75px;
+    color: #395144;
+    margin-top: 635px;
+    margin-left: 446px;
+}
+.slogan2{
+    position: absolute;
+    width: 223px;
+    height: 83px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 50px;
+    line-height: 75px;
+    color: #395144;
+    margin: 747px 525px 194px 692px;
+}
+#bo{
+    margin-top: 32px;
+    margin-left: 43px;
+}
+#assi{
+    margin-top: 105px;
+    margin-left: 43px;
+}
+#ove{
+    margin-top: 175px;
+    margin-left: 43px;
+}
+#up{
+    margin-top: 236px;
+    margin-left: 43px;
+}
+#mes{
+    margin-top: 297px;
+    margin-left: 43px;
+}
+#bot{
+    position: absolute;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+    display: inline;
+    margin-left: 16px;
+    margin-top: 32px;
+}
+#assit{
+    position: absolute;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+    margin-top: 32px;
+    margin-left: 83px;
+}
+

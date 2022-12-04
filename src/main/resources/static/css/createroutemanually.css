@@ -1,0 +1,92 @@
+.navi{
+    box-sizing: border-box;
+    position: absolute;
+    width: 224px;
+    height: 1024px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.backtop{
+    position: absolute;
+    width: 1216px;
+    height: 96px;
+    background: #AACB8F;
+    margin-left: 224px;
+}
+.map{
+    box-sizing: border-box;
+    position: absolute;
+    width: 1148px;
+    height: 499px;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    margin: 175px 35px 350px 257px;
+}
+.text{
+    position: absolute;
+    width: 833px;
+    height: 24px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    color: #000000;
+    margin: 742px 350px 258px 257px;
+
+}
+.mp{
+    position: absolute;
+    width: 49px;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+}
+#mp1{
+    margin: 816px 1134px 189px 257px;
+}
+#mp2{
+    margin: 816px 1047px 189px 341px;
+}
+#mp3{
+    margin: 816px 963px 189px 425px;
+}
+#mp4{
+    margin: 816px 879px 189px 509px;
+}
+#mp5{
+    margin: 816px 797px 189px 591px;
+}
+#button1{
+    width: 86px;
+    height: 43px;
+    background: #D2D2D2;
+    position: absolute;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #0D0101;
+    margin: 914px 1116px 86px 282px;
+    cursor: pointer;
+}
+#button2{
+    position: absolute;
+    width: 224px;
+    height: 43px;
+    background: #379237;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+    cursor: pointer;
+    margin: 913px 889px 87px 451px;
+}

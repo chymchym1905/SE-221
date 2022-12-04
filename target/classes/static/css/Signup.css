@@ -1,0 +1,140 @@
+body {
+    position: absolute;
+    width: 1440px;
+    height: 1024px;
+    background: #AACB8F;
+
+}
+.signup {
+    position: absolute;
+    width: 881px;
+    height: 833px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    margin: 89px 179px 102px 280px;
+}
+h1{
+    position: absolute;
+    font-family: 'Poly';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 100px;
+    line-height: 119px;
+    text-align: center;
+    color: #000000;
+    margin-top: 0px;
+    margin-left: 255px;
+    text-align:center;
+}
+.firstname{
+    box-sizing: border-box;
+    position: absolute;
+    width: 320px;
+    height: 115px;
+    border: 3px solid #379237;
+    border-radius: 20px;
+    margin-top: 140px;
+    margin-left: 114px;
+    background-color: transparent;
+}
+.lastname{
+    box-sizing: border-box;
+    position: absolute;
+    width: 320px;
+    height: 115px;
+    border: 3px solid #379237;
+    border-radius: 20px;
+    margin-top: 140px;
+    margin-left: 446px;
+    background-color: transparent;
+}
+.username{
+    box-sizing: border-box;
+    position: absolute;
+    width: 652px;
+    height: 115px;
+    border: 3px solid #379237;
+    border-radius: 20px;
+    background-color: transparent;
+    margin-top: 279px;
+    margin-left: 114px;
+}
+.password{
+    box-sizing: border-box;
+    position: absolute;
+    width: 652px;
+    height: 115px;
+    border: 3px solid #379237;
+    border-radius: 20px;
+    background-color: transparent;
+    margin-top: 418px;
+    margin-left: 114px;
+}
+.confirmpassword{
+    box-sizing: border-box;
+    position: absolute;
+    width: 652px;
+    height: 115px;
+    border: 3px solid #379237;
+    border-radius: 20px;
+    background-color: transparent;
+    margin-top: 557px;
+    margin-left: 114px;
+}
+.button{
+    box-sizing: border-box;
+    position: absolute;
+    width: 182px;
+    height: 65px;
+    border: 3px solid #379237;
+    border-radius: 10px;
+    margin-top: 696px;
+    margin-left: 349px;
+    position: absolute;
+    font-family: 'Poly';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+    color: #000000;
+    cursor: pointer;
+}
+b{
+    position: absolute;
+    width: 285px;
+    height: 33px;
+    font-family: 'Poly';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+    color: #000000;
+    margin-top: 777px;
+    margin-left: 261px;
+}
+a{
+    position: absolute;
+    width: 239px;
+    height: 33px;
+    font-family: 'Poly';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+    color: #FF0000;
+    margin-top: 777px;
+    margin-left: 465px;
+}
+input::placeholder {
+    height: 33px;
+    font-family: 'Poly';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 36px;
+    color: #000000;
+    opacity: 0.5;
+}
