@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <link rel="stylesheet" th:href="@{css/createroutemanually.css}">
+        <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>SideBarDemo</title>
+    <!-- Font Awesome -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.11.2/css/all.css}" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap}" />
+    <!-- MDB -->
+    <link rel="stylesheet" th:href="@{css/mdb.min.css}" />
+    <!-- Custom styles -->
+    <link rel="stylesheet" th:href="@{css/style.css}" />
+    </head>
+    <body>
+        <div class="backtop">
+        </div>
+		<section th:replace="/fragments/Sidebar :: content">
+		</section>
+        <a class="cr">Create router manually</a>
+        <div class="map"> 
+         <iframe 
+         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d418865.4948109495!2d106.34840025432686!3d10.754107327291607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529292e8d3dd1%3A0xf15f5aad773c112b!2sHo%20Chi%20Minh%20City%2C%20Vietnam!5e0!3m2!1sen!2s!4v1670183278176!5m2!1sen!2s" 
+         width = "100%" height = "100%" style="border:0;" allowfullscreen="" loading="lazy" 
+         referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <a class="text">Please click to select MCPs on the map to create a route on your own</a>
+        <a class="mp" id="mp1">MCP1</a>
+        <a class="mp" id="mp2">MCP2</a>
+        <a class="mp" id="mp3">MCP3</a>
+        <a class="mp" id="mp4">MCP4</a>
+        <a class="mp" id="mp5">MCP5</a>
+        <input id="button1" type="button" value="Back">
+        <input id="button2" type="button" value="Confirm">
+        <script type="text/javascript" th:src="@{/js/sidebarscript.js}"></script>
+    </body>
+</html>

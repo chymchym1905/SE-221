@@ -6,10 +6,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("dashboard")
-public class HomeController {
+@RequestMapping("signup")
+public class SignupController {
 	@GetMapping("")
-	public String index(ModelMap model) {
-		return "dashboard/welcome";
+	public String SignUp(ModelMap model) {
+		return "signup";
 	}
 }
+

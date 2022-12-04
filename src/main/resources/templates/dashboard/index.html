@@ -18,11 +18,14 @@
     <link rel="stylesheet" th:href="@{css/style.css}" />
     </head>
     <body>
-		<section layout:fragment="content">
+    	<div class="backtop">
+        </div>
+		<section th:replace="/fragments/Sidebar :: content">
+		</section>
 		    <a class="cr">Create router</a>
 	        <a class="q">How do you want to create a route?</a>
 	        <input class="button" id="button1" type="button" value="Manually">
 	        <input class="button" id="button2" type="button" value="Automatically">
-		</section>
+	     <script type="text/javascript" th:src="@{/js/sidebarscript.js}"></script>
     </body>
 </html>
