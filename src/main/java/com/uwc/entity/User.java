@@ -46,7 +46,7 @@ public class User {
 	private Role roles; // done
 	
 	@OneToMany(mappedBy = "users", fetch = FetchType.LAZY)
-	private List<Announcement> announcement;
+	private List<User_Announcement> user_announcements; 
 	
 	@OneToMany(mappedBy = "users",  fetch = FetchType.LAZY)
 	private List<MCP> mcp;
