@@ -1,6 +1,5 @@
 package com.uwc.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +17,7 @@ public class Vehicle {
 	private int id;
 	private float current_fuel;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name="task_id", insertable = false, updatable = false )
 	private Task task;
 

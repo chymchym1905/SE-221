@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name = "routes")
 public class Route {
@@ -25,11 +26,11 @@ public class Route {
 	private float length;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="user_id", insertable = false, updatable = false)
+	@JoinColumn(name="user_id")
 	private User users;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="task_id", insertable = false, updatable = false )
+	@JoinColumn(name="task_id")
 	private Task task;
 	
 	@OneToMany(mappedBy = "routes", fetch = FetchType.LAZY)	
@@ -62,6 +63,22 @@ public class Route {
 
 	public int getId() {
 		return id;
+	}
+	
+	public Task getTask() {
+		return task;
+	}
+	
+	public int getTaskId() {
+		return task.getId();
+	}
+	
+	public int setTaskId(int id) {
+		return task.setId(id);
+	}
+
+	public void setTask(Task task) {
+		this.task = task;
 	}
 	
 }

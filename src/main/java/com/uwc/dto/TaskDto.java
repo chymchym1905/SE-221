@@ -47,4 +47,11 @@ public class TaskDto {
 		return id;
 	}
 
+	public int setId(int id) {
+		this.id = id;
+		return id;
+	}
+	
+	
+
 }

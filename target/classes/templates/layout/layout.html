@@ -29,21 +29,36 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/jquery.mCustomScrollbar.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/mdb.min.css}" />
+    
+    
+    <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.11.2/css/all.css}" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap}" />
+
 </head>
 
 
 <body>
 
-	 <!-- NAVBAR -->
-                
-     <!--  SIDEBAR  -->
-     <div th:replace="/fragments/Sidebar :: content"></div>
 
-            
-     <!-- Main-body start -->
-     <!-- PHAN THAY DOI THEO TUNG TRANG -->
-     <section id="admin-content" class="p-3" layout:fragment="content"></section>
 
+			 <!-- NAVBAR -->
+			<div class = "r-custom">
+		
+            	<div class="backtop"></div>
+
+                	<!--  SIDEBAR  -->
+                	<div class = "col-custom1">
+                    	<div th:replace="/fragments/Sidebar"></div>
+                    </div>
+
+					<div class = "col-custom2">
+                            <!-- Main-body start -->
+                              <!-- PHAN THAY DOI THEO TUNG TRANG -->
+           					 <section id="admin-content" class="p-3" layout:fragment="content"></section>
+					</div>
+			</div>
     <script type="text/javascript" th:src="@{/plugins/jquery/js/jquery.min.js}"></script>
     <script type="text/javascript" th:src="@{/plugins/jquery-ui/js/jquery-ui.min.js}"></script>
     <script type="text/javascript" th:src="@{/plugins/popper.js/js/popper.min.js}"></script>

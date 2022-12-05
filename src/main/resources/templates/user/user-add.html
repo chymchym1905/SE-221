@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/layout/layout}">
+<head>
+	<title>Add User</title>
+</head>
+
+<body>
+	<section id="admin-content" class="p-3" layout:fragment="content">
+
+				<h2 class="text-uppercase text-center">Thêm mới tài khoản</h2>
+	
+		
+				<form th:action="@{/user/add}" th:object="${user}"  method="post">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Họ tên</label> 
+								<input type="text" th:field="*{username}" class="form-control"/>
+								<span class="text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+							</div>
+							<div class="form-group">
+								<label>Email</label> 
+								<input type="text" th:field="*{email}" class="form-control" />
+								<span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+							</div>
+							<div class="form-group">
+								<label>Mật khẩu</label> 
+								<input type="password" th:field="*{password}" class="form-control" />
+								
+							</div>
+
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Điện thoại</label> 
+								<input type="text" th:field="*{phone_number}" class="form-control" />
+								<span class="text-danger" th:if="${#fields.hasErrors('phone_number')}" th:errors="*{phone_number}"></span>
+							</div>
+							<div class="form-group">
+								<label>Phân công</label> 
+								<input type="text" th:field="*{isAvailable}" class="form-control" />
+								<span class="text-danger" th:if="${#fields.hasErrors('isAvailable')}" th:errors="*{isAvailable}"></span>
+							</div>
+
+							<div class="form-group">
+								<label>Loại người dùng</label> 
+								<select name="role_id" id=""
+									class="form-control">
+									<option th:each="item : ${roles}"
+											th:value="${item.id}"
+											th:text="${item.name}">
+									</option>
+									
+								</select>
+							</div>
+						</div>
+						<div class="col-12 mt-3">
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary m-b-0">Lưu
+									lại</button>
+								<a th:href="@{/user}" class="btn btn-secondary text-white">Quay
+									lại</a>
+							</div>
+						</div>
+					</div>
+				</form>
+	
+	</section>
+
+</body>
+
+</html>
