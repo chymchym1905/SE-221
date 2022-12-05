@@ -23,6 +23,10 @@ public class User {
 	private int id;
 	
 	@Column(nullable = false, unique = true)
+	private String username;
+	
+	
+	@Column(nullable = false, unique = true)
 	private String email;
 
 	@Column(nullable = false, unique = true, length = 20)
@@ -55,10 +59,11 @@ public class User {
 
 	public User() {}
 	
-	public User(int id, String email, int phone_number, Boolean isAvailable, String password,
+	public User(int id, String username, String email, int phone_number, Boolean isAvailable, String password,
 			Date birthday, Date regisdate, int role_id) {
 		super();
 		this.id = id;
+		this.username = username;
 		this.email = email;
 		this.phone_number = phone_number;
 		this.isAvailable = isAvailable;
@@ -128,4 +133,19 @@ public class User {
 		this.role_id = role_id;
 	}
 
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
+	public Role getRole() {
+		return this.roles;
+	}
+	
+	public void setRole(Role role) {
+		this.roles = role;
+	}
 }

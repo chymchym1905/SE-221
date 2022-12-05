@@ -1,27 +1,30 @@
-package com.uwc.dto;
+package com.uwc.model;
 
 import java.util.Date;
 
-public class UserDto {
+public class RegisterViewModel {
 
 	private int id;
-	private String username;
-
+	
 	private String email;
+
+	private String password;
+	
+	
 	private int phone_number;
 	private Boolean isAvailable;
-	private String password;
 	private Date birthday;
 	private Date regisdate;
+
 	private int role_id;
 	
-	public UserDto() {}
 
-	public UserDto(int id, String username, String email, int phone_number, Boolean isAvailable, String password, Date birthday,
-			Date regisdate, int role_id) {
+	public RegisterViewModel() {}
+	
+	public RegisterViewModel(int id, String email, int phone_number, Boolean isAvailable, String password,
+			Date birthday, Date regisdate, int role_id) {
 		super();
 		this.id = id;
-		this.username = username;
 		this.email = email;
 		this.phone_number = phone_number;
 		this.isAvailable = isAvailable;
@@ -79,6 +82,10 @@ public class UserDto {
 		this.regisdate = regisdate;
 	}
 
+	public int getId() {
+		return id;
+	}
+
 	public int getRole_id() {
 		return role_id;
 	}
@@ -87,16 +94,4 @@ public class UserDto {
 		this.role_id = role_id;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	
 }

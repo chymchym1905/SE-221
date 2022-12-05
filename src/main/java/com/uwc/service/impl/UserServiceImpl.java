@@ -25,6 +25,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public void add(UserDto dto) {
 		User user = new User();
+		user.setUsername(dto.getUsername());;
 		user.setEmail(dto.getEmail());
 		user.setPassword(BCrypt.hashpw(dto.getPassword(), BCrypt.gensalt(12)));
 	//	user.setPassword(dto.getPassword());
@@ -38,37 +39,35 @@ public class UserServiceImpl implements UserService{
 	public List<UserDto> findAll() {
 		List<UserDto> dtos = new ArrayList<UserDto>();
 
-		/* 		SOME BUGS HERE --------> FIX IT LATER
 		List<User> users = userRepository.findAll();
 		for (User user : users) {
-			dtos.add(new UserDto(user.getId(), 
+			dtos.add(new UserDto(user.getId(), user.getUsername(),
 					user.getEmail(),user.getPhone_number() , 
 					user.getIsAvailable(),user.getPassword() , 
 					user.getBirthday(), user.getRegisdate(),
 					user.getRole_id()));
 		}
-		*/
+		
 
 		return dtos;
 	}
 
 	@Override
 	public UserDto findById(int id) {
-		//User user = userRepository.findById(id).get();
-		/* 		SOME BUGS HERE --------> FIX IT LATER
-		return new UserDto(user.getId(), user.getUsername(), 
+		User user = userRepository.findById(id).get();
+		// 		SOME BUGS HERE --------> FIX IT LATER
+		return new UserDto(user.getId(), user.getUsername(),
 				user.getEmail(),user.getPhone_number() , 
 				user.getIsAvailable(),user.getPassword() , 
-				user.getBirthday(), user.getRegisdate());
-		*/
-
-		return null;
+				user.getBirthday(), user.getRegisdate(),
+				user.getRole_id());
+	
 	}
 
 	@Override
 	public void update(UserDto dto) {
-		//User user = userRepository.findById(dto.getId()).get();
-		/* 		SOME BUGS HERE --------> FIX IT LATER
+		User user = userRepository.findById(dto.getId()).get();
+		//	SOME BUGS HERE --------> FIX IT LATER
 
 		user.setEmail(dto.getEmail());
 		user.setUsername(dto.getUsername());
@@ -77,7 +76,7 @@ public class UserServiceImpl implements UserService{
 		user.setBirthday(dto.getBirthday());
 		user.setRegisdate(dto.getRegisdate());
 		userRepository.save(user);
-		*/
+		
 	}
 
 	@Override
@@ -89,18 +88,26 @@ public class UserServiceImpl implements UserService{
 	public List<UserDto> search(String keyword) {
 		
 		List<UserDto> dtos = new ArrayList<UserDto>();
-		//List<User> users = userRepository.search(keyword);
-		/* 		SOME BUGS HERE --------> FIX IT LATER 
+		List<User> users = userRepository.search(keyword);
+		// 		SOME BUGS HERE --------> FIX IT LATER 
 		for (User user : users) {
 			
-			dtos.add(new UserDto(user.getId(), user.getUsername(), 
+			dtos.add(new UserDto(user.getId(), user.getUsername(),
 					user.getEmail(),user.getPhone_number() , 
 					user.getIsAvailable(),user.getPassword() , 
-					user.getBirthday(), user.getRegisdate()));
+					user.getBirthday(), user.getRegisdate(),
+					user.getRole_id()));
 			
 		}
-		*/
+		
 		return dtos;
+	}
+
+	@Override
+	public UserDto findByUsername(String username) {
+		// TODO Auto-generated method stub
+		
+		return null;
 	}
 
 }

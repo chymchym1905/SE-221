@@ -11,6 +11,7 @@ import com.uwc.entity.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> { 
-	@Query("SELECT u FROM User u WHERE u.email =:keyword")
+	User findByUsername(String username);
+	@Query("SELECT u FROM User u WHERE u.username =:keyword OR u.email =:keyword")
 	public List<User> search(@Param("keyword") String keyword);
 }
