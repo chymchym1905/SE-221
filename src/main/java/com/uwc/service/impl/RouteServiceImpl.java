@@ -44,7 +44,7 @@ public class RouteServiceImpl implements RouteService {
 		Route Route = new Route();
 		Route.setName(dto.getName());
 		Route.setLength(dto.getLength());
-		Route.setTaskId(dto.getTaskId());
+		Route.setTaskId(dto.getTask_id());
 		
 		routeRepository.save(Route);
 	}
@@ -54,7 +54,7 @@ public class RouteServiceImpl implements RouteService {
 		Route Route = routeRepository.findById(dto.getId()).get();
 		Route.setName(dto.getName());
 		Route.setLength(dto.getLength());
-		Route.setTaskId(dto.getTaskId());
+		Route.setTaskId(dto.getTask_id());
 	}
 
 	@Override

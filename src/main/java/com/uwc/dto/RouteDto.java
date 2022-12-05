@@ -7,7 +7,7 @@ public class RouteDto {
 	private int id;
 	private String name;
 	private float length;
-	private TaskDto task;
+	private int task_id;
 	
 	public RouteDto() {}
 
@@ -16,7 +16,7 @@ public class RouteDto {
 		this.id = id;
 		this.name = name;
 		this.length = length;
-		this.task.setId(task);
+		this.task_id=task;
 	}
 
 	public RouteDto(int id2, String name2, float length2, Class<? extends Route> class1) {
@@ -39,21 +39,15 @@ public class RouteDto {
 		this.length = length;
 	}
 
-	public TaskDto getTask() {
-		return task;
+	
+	public int getTask_id() {
+		return this.task_id;
 	}
 	
-	public int getTaskId() {
-		return task.getId();
-	}
-	
-	public int setTaskId(int id) {
-		return task.setId(id);
+	public void setTas_id(int id) {
+		this.task_id=id;
 	}
 
-	public void setTask(TaskDto task) {
-		this.task = task;
-	}
 
 	public int getId() {
 		return id;

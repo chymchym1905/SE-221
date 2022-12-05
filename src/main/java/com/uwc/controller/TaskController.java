@@ -1,11 +1,12 @@
 package com.uwc.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,20 +53,30 @@ public class TaskController {
 	@RequestMapping(value = "add",method = RequestMethod.GET)
 	public String add(ModelMap model) {
 		model.addAttribute("task", new TaskDto());
-		model.addAttribute("route", new RouteDto());
-		model.addAttribute("user", new UserDto());
-		model.addAttribute("vehicle", new VehicleDto());
+		List<RouteDto> listroute = routeService.findAll();
+		List<UserDto> listuser = userService.findAll();
+		List<VehicleDto> listvehicle = vehicleService.findAll();
+		model.addAttribute("routes", listroute);
+		model.addAttribute("users", listuser);
+		model.addAttribute("vehicles", listvehicle);
 		return "task/task-add";
 	}
 	
 	@RequestMapping(value = "add", method = RequestMethod.POST)
 	public String addPost(ModelMap model, @ModelAttribute("task") TaskDto task, 
-			BindingResult errors) {
+			@ModelAttribute("route") RouteDto route, 
+			@ModelAttribute("user") UserDto user, 
+			@ModelAttribute("vehicle") VehicleDto vehicle, 
+			BindingResult errors) 
+	{
 		if (errors.hasErrors()) {
 			return "task/task-add";
 		}
 		try {
 			taskService.add(task);
+			routeService.add(route);
+			userService.add(user);
+			vehicleService.add(vehicle);
 			return "redirect:/task";
 		}
 		catch (Exception e) {
