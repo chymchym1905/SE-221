@@ -1,6 +1,5 @@
 package com.uwc.controller;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +19,7 @@ public class TaskController {
 	
 	@GetMapping("")
 	public String index(ModelMap model) {
-		List<TaskDto> list = taskService.findAll();
+		//List<TaskDto> list = taskService.findAll();
 		return "";
 	}
 }

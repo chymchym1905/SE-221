@@ -1,6 +1,7 @@
 package com.uwc.entity;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -25,7 +27,10 @@ public class Announcement {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="user_id", insertable = false, updatable = false)
-	private User users;
+	private User users; // done
+	
+	@OneToMany(mappedBy = "announcements", fetch = FetchType.LAZY)
+	private List<User_Announcement> user_announcements; // done
 	
 	public Announcement() {}
 
