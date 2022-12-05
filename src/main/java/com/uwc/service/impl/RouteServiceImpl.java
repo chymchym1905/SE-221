@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.uwc.dto.RouteDto;
-import com.uwc.dto.TaskDto;
 import com.uwc.entity.Route;
 import com.uwc.repository.RouteRepository;
 import com.uwc.service.RouteService;
@@ -28,7 +27,7 @@ public class RouteServiceImpl implements RouteService {
 		List<Route> routes = routeRepository.findAll();
 		
 		for (Route Route : routes) {
-			dtos.add(new RouteDto(Route.getId(), Route.getName(), Route.getLength(), Route.getTaskId()));
+			dtos.add(new RouteDto(Route.getId(), Route.getName(), Route.getLength(), Route.getTaskId())); //Sửa lại constructor (thêm getTaskId)
 		}
 		return dtos;
 	}
@@ -36,7 +35,7 @@ public class RouteServiceImpl implements RouteService {
 	@Override
 	public RouteDto findById(int id) {
 		Route Route = routeRepository.findById(id).get();
-		return new RouteDto(Route.getId(), Route.getName(), Route.getLength(), Route.getTaskId());
+		return new RouteDto(Route.getId(), Route.getName(), Route.getLength(), Route.getTaskId()); //Sửa lại constructor (thêm getTaskId)
 	}
 
 	@Override
@@ -67,7 +66,7 @@ public class RouteServiceImpl implements RouteService {
 		List<RouteDto> dtos = new ArrayList<RouteDto>();
 		List<Route> routes = routeRepository.search(keyword);
 		for (Route Route : routes) {
-			dtos.add(new RouteDto(Route.getId(), Route.getName(), Route.getLength(), Route.getTaskId()));
+			dtos.add(new RouteDto(Route.getId(), Route.getName(), Route.getLength(), Route.getTaskId()));  //Sửa lại constructor (thêm getTaskId)
 		}		
 			return dtos;
 	}

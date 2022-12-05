@@ -7,7 +7,7 @@ public class RouteDto {
 	private int id;
 	private String name;
 	private float length;
-	private int task_id;
+	private int task_id; //Dùng để lưu task id cho việc giao tiếp với controller
 	
 	public RouteDto() {}
 
@@ -19,9 +19,6 @@ public class RouteDto {
 		this.task_id=task;
 	}
 
-	public RouteDto(int id2, String name2, float length2, Class<? extends Route> class1) {
-		// TODO Auto-generated constructor stub
-	}
 
 	public String getName() {
 		return name;

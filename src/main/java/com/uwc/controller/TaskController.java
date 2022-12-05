@@ -53,6 +53,7 @@ public class TaskController {
 	@RequestMapping(value = "add",method = RequestMethod.GET)
 	public String add(ModelMap model) {
 		model.addAttribute("task", new TaskDto());
+		//Dùng để browse và select user/route/vehicle trong 1 task
 		List<RouteDto> listroute = routeService.findAll();
 		List<UserDto> listuser = userService.findAll();
 		List<VehicleDto> listvehicle = vehicleService.findAll();
@@ -64,6 +65,7 @@ public class TaskController {
 	
 	@RequestMapping(value = "add", method = RequestMethod.POST)
 	public String addPost(ModelMap model, @ModelAttribute("task") TaskDto task, 
+			//Thay đổi giá trị taskID tương ứng cho route, user và vehicle
 			@ModelAttribute("route") RouteDto route, 
 			@ModelAttribute("user") UserDto user, 
 			@ModelAttribute("vehicle") VehicleDto vehicle, 
