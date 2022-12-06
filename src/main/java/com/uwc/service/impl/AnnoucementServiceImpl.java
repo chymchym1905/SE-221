@@ -26,7 +26,7 @@ public class AnnoucementServiceImpl implements AnnouncementService {
 		List<Announcement> announcements = AnnouncementRepository.findAll();
 		
 		for (Announcement announcement : announcements) {
-			dtos.add(new AnnouncementDto(announcement.getId(), announcement.getDate_time(), announcement.getDescription(), announcement.getUser_id() ));
+			dtos.add(new AnnouncementDto(announcement.getId(), announcement.getDate_time(), announcement.getDescription() ));
 		}
 		return dtos;
 	}
@@ -34,7 +34,7 @@ public class AnnoucementServiceImpl implements AnnouncementService {
 	@Override
 	public AnnouncementDto findById(int id) {
 		Announcement announcement = AnnouncementRepository.findById(id).get();
-		return new AnnouncementDto(announcement.getId(), announcement.getDate_time(), announcement.getDescription(),announcement.getUser_id());
+		return new AnnouncementDto(announcement.getId(), announcement.getDate_time(), announcement.getDescription());
 	}
 
 	@Override
@@ -42,7 +42,6 @@ public class AnnoucementServiceImpl implements AnnouncementService {
 		Announcement announcement = new Announcement();
 		announcement.setDate_time(dto.getDate_time());
 		announcement.setDescription(dto.getDescription());
-		announcement.setUser_id(dto.getUser_id());
 		
 		AnnouncementRepository.save(announcement);
 	}
@@ -52,7 +51,6 @@ public class AnnoucementServiceImpl implements AnnouncementService {
 		Announcement announcement = AnnouncementRepository.findById(dto.getId()).get();
 		announcement.setDate_time(dto.getDate_time());
 		announcement.setDescription(dto.getDescription());
-		announcement.setUser_id(dto.getUser_id());
 	}
 
 	@Override
@@ -65,7 +63,7 @@ public class AnnoucementServiceImpl implements AnnouncementService {
 		List<AnnouncementDto> dtos = new ArrayList<AnnouncementDto>();
 		List<Announcement> annoucements = AnnouncementRepository.search(keyword);
 		for (Announcement Announcement : annoucements) {
-			dtos.add(new AnnouncementDto(Announcement.getId(), Announcement.getDate_time(), Announcement.getDescription(),Announcement.getUser_id()));
+			dtos.add(new AnnouncementDto(Announcement.getId(), Announcement.getDate_time(), Announcement.getDescription()));
 		}		
 			return dtos;
 	}

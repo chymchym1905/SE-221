@@ -1,7 +1,6 @@
 package com.uwc.service.impl;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -27,7 +26,7 @@ public class RouteServiceImpl implements RouteService {
 		List<Route> routes = routeRepository.findAll();
 		
 		for (Route Route : routes) {
-			dtos.add(new RouteDto(Route.getId(), Route.getName(), Route.getLength(), Route.getTaskId())); //Sửa lại constructor (thêm getTaskId)
+			dtos.add(new RouteDto(Route.getId(), Route.getName(), Route.getLength(), Route.getTask_id())); //Sửa lại constructor (thêm getTaskId)
 		}
 		return dtos;
 	}
@@ -35,7 +34,7 @@ public class RouteServiceImpl implements RouteService {
 	@Override
 	public RouteDto findById(int id) {
 		Route Route = routeRepository.findById(id).get();
-		return new RouteDto(Route.getId(), Route.getName(), Route.getLength(), Route.getTaskId()); //Sửa lại constructor (thêm getTaskId)
+		return new RouteDto(Route.getId(), Route.getName(), Route.getLength(), Route.getTask_id()); 
 	}
 
 	@Override
@@ -43,7 +42,7 @@ public class RouteServiceImpl implements RouteService {
 		Route Route = new Route();
 		Route.setName(dto.getName());
 		Route.setLength(dto.getLength());
-		Route.setTaskId(dto.getTask_id());
+		Route.setTask_id(dto.getTask_id());
 		
 		routeRepository.save(Route);
 	}
@@ -53,7 +52,7 @@ public class RouteServiceImpl implements RouteService {
 		Route Route = routeRepository.findById(dto.getId()).get();
 		Route.setName(dto.getName());
 		Route.setLength(dto.getLength());
-		Route.setTaskId(dto.getTask_id());
+		Route.setTask_id(dto.getTask_id());
 	}
 
 	@Override
@@ -66,7 +65,7 @@ public class RouteServiceImpl implements RouteService {
 		List<RouteDto> dtos = new ArrayList<RouteDto>();
 		List<Route> routes = routeRepository.search(keyword);
 		for (Route Route : routes) {
-			dtos.add(new RouteDto(Route.getId(), Route.getName(), Route.getLength(), Route.getTaskId()));  //Sửa lại constructor (thêm getTaskId)
+			dtos.add(new RouteDto(Route.getId(), Route.getName(), Route.getLength(), Route.getTask_id()));  
 		}		
 			return dtos;
 	}

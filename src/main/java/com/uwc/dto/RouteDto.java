@@ -1,55 +1,32 @@
 package com.uwc.dto;
 
-import com.uwc.entity.Route;
+import java.util.Set;
 
+import com.uwc.entity.MCP;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class RouteDto {
 
 	private int id;
 	private String name;
 	private float length;
-	private int task_id; //Dùng để lưu task id cho việc giao tiếp với controller
+	private int task_id; 
+	private Set<MCP> hasMCPs;
 	
-	public RouteDto() {}
-
-	public RouteDto(int id, String name, float length, int task) {
+	public RouteDto(int id, String name, float length, int task_id) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.length = length;
-		this.task_id=task;
-	}
-
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public float getLength() {
-		return length;
-	}
-
-	public void setLength(float length) {
-		this.length = length;
-	}
-
-	
-	public int getTask_id() {
-		return this.task_id;
+		this.task_id = task_id;
 	}
 	
-	public void setTas_id(int id) {
-		this.task_id=id;
-	}
-
-
-	public int getId() {
-		return id;
-	}
-
-
-
 }
