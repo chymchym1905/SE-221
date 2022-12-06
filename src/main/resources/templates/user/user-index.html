@@ -33,15 +33,15 @@
 		                    </tr>
 		                    <tr th:each="item : ${users}">
 		                        <th th:text="${item.id}"/>
-		                        <td th:text="${item.fullname}"/>
+		                        <td th:text="${item.username}"/>
 		                        <td th:text="${item.email}"/>
-		                        <td th:text="${item.phone}"/>
+		                        <td th:text="${item.phone_number}"/>
 		                        <td th:text="${item.isAvailable}"/>
 		                        <td th:text="${item.regisdate}"/>
 		                        <td th:text="${item.birthday}"/>
 		                        <td><a href="#"
 		                            class="btn btn-sm btn-info btn-round py-1 font-weight-bold">Sửa</a>
-		                            <a th:href="@{#}"
+		                            <a th:href="@{/user/delete/{id}(id=${item.id})}"
 		                            class="btn btn-sm btn-danger btn-round py-1 font-weight-bold">Xóa</a>
 		                        </td>
 		                    </tr>

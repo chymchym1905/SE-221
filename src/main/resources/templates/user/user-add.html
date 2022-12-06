@@ -16,7 +16,7 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
-								<label>Họ tên</label> 
+								<label>Tên Đăng Nhập</label> 
 								<input type="text" th:field="*{username}" class="form-control"/>
 								<span class="text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
 							</div>
@@ -46,11 +46,12 @@
 
 							<div class="form-group">  <!-- CHỌN ROLE -->
 								<label>Loại người dùng</label> 
-								<select name="role_id" id=""
-									class="form-control">
+								<select  th:field="*{role_id}"
+									class="form-control" >
 									<option th:each="item : ${roles}"
-											th:value="${item.id}"
-											th:text="${item.name}">
+											th:value="${item.id}" 
+											th:text="${item.name}"
+											id="dgfh">
 									</option>
 									
 								</select>

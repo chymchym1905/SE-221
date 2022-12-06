@@ -9,26 +9,28 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.uwc.dto.VehicleDto;
-import com.uwc.service.VehicleService;
+import com.uwc.dto.RouteDto;
+import com.uwc.service.RouteService;
 
 @Controller
-@RequestMapping("vehicle")
-public class VehicleController {
-	
+@RequestMapping("route")
+public class RouteController {
 	@Autowired
-	private VehicleService vehicleService;
+	private RouteService routeService;
+	
 	@RequestMapping(value = "",method = RequestMethod.GET)
 	public String index(ModelMap model) {
-		List<VehicleDto> listvehicle = vehicleService.findAll();
-		model.addAttribute("vehicles", listvehicle);
-		return "vehicle/vehicle-index";
+		//Lấy User list từ db
+		List<RouteDto> list = routeService.findAll();
+		// Chuyển tiếp List qua Thymeleaf (user-index.html)
+		model.addAttribute("routes",list);
+		
+		return "route/route-index";
 	}
-	
 	
 	@RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
 	public String delete(@PathVariable("id") int id) {
-		vehicleService.delete(id);
-		return "redirect:/vehicle";
+		routeService.delete(id);
+		return "redirect:/Route";
 	}
 }

@@ -11,6 +11,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,8 +29,9 @@ public class Task {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date start_date;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date end_date;
 	private Boolean isComplete;
 	

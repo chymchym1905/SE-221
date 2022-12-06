@@ -62,6 +62,33 @@ public class UserController {
 		}
 	}
 	
+	@RequestMapping(value = "edit",method = RequestMethod.GET)
+	public String edit(ModelMap model, @PathVariable("id") int id) {
+		UserDto user =  userService.findById(id);
+		model.addAttribute("edituser", user);
+		List<RoleDto> list = roleService.findAll();
+		model.addAttribute("roles", list);
+		return "user/user-edit";
+	}
+	
+	@RequestMapping(value = "edit", method = RequestMethod.POST)
+	public String editPost(ModelMap model, @ModelAttribute("edituser") UserDto user, 
+			BindingResult errors) {
+		// NẾU CÓ LỖI XẢY RA, CHUYỂN TIẾP LẠI VỀ TRANG HIỆN TẠI 
+				// ĐỂ SHOW LỖI LÊN CHO NGƯỜI DÙNG THẤY
+		if (errors.hasErrors()) {
+			return "user/user-edit";
+		}
+		try {
+			userService.update(user);
+			return "redirect:/user";
+		}
+		catch ( Exception e) {
+			model.addAttribute("message", "Thêm mới thất bại");
+			return "user/user-edit";
+		}
+	}
+	
 	@RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
 	public String delete(@PathVariable("id") int id) {
 		userService.delete(id);
