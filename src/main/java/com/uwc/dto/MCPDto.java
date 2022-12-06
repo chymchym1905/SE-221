@@ -14,6 +14,6 @@ public class MCPDto {
 	private int id;
 	private float fullness;
 	private float latitude;
-	private float longtitude;
+	private float longitude;
 
 }

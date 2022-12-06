@@ -62,7 +62,7 @@ public class UserController {
 		}
 	}
 	
-	@RequestMapping(value = "edit",method = RequestMethod.GET)
+	@RequestMapping(value = "edit/{id}",method = RequestMethod.GET)
 	public String edit(ModelMap model, @PathVariable("id") int id) {
 		UserDto user =  userService.findById(id);
 		model.addAttribute("edituser", user);
@@ -71,8 +71,8 @@ public class UserController {
 		return "user/user-edit";
 	}
 	
-	@RequestMapping(value = "edit", method = RequestMethod.POST)
-	public String editPost(ModelMap model, @ModelAttribute("edituser") UserDto user, 
+	@RequestMapping(value = "edit/{id}", method = RequestMethod.POST)
+	public String editPost(ModelMap model, @ModelAttribute("edituser") UserDto user,
 			BindingResult errors) {
 		// NẾU CÓ LỖI XẢY RA, CHUYỂN TIẾP LẠI VỀ TRANG HIỆN TẠI 
 				// ĐỂ SHOW LỖI LÊN CHO NGƯỜI DÙNG THẤY

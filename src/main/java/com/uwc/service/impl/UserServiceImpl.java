@@ -32,6 +32,7 @@ public class UserServiceImpl implements UserService{
 		user.setPhone_number(dto.getPhone_number());
 		user.setBirthday(dto.getBirthday());
 		user.setRole_id(dto.getRole_id());
+		user.setIsAvailable(dto.getIsAvailable());
 		userRepository.save(user);
 	}
 
@@ -74,6 +75,8 @@ public class UserServiceImpl implements UserService{
 		user.setPhone_number(dto.getPhone_number());
 		user.setBirthday(dto.getBirthday());
 		user.setRegisdate(dto.getRegisdate());
+		user.setRole_id(dto.getRole_id());
+		user.setIsAvailable(dto.getIsAvailable());
 		userRepository.save(user);
 		
 	}

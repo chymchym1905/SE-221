@@ -22,7 +22,7 @@
 		                        <th>Họ Tên</th>
 		                        <th>Email</th>
 		                        <th>Số ĐT</th>
-		                        <th>Phân công</th>
+		                        <th>Đã nhận nhiệm vụ</th>
 		                        <th>Ngày đăng kí</th>
 		                        <th>Ngày sinh</th>
 		                    </tr>
@@ -39,7 +39,7 @@
 		                        <td th:text="${item.isAvailable}"/>
 		                        <td th:text="${item.regisdate}"/>
 		                        <td th:text="${item.birthday}"/>
-		                        <td><a href="#"
+		                        <td><a th:href="@{/user/edit/{id}(id=${item.id})}"
 		                            class="btn btn-sm btn-info btn-round py-1 font-weight-bold">Sửa</a>
 		                            <a th:href="@{/user/delete/{id}(id=${item.id})}"
 		                            class="btn btn-sm btn-danger btn-round py-1 font-weight-bold">Xóa</a>

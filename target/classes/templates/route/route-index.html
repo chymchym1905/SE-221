@@ -11,7 +11,7 @@
  	<section id="admin-content" class="p-3" layout:fragment="content">
 
 		        <h2 class="text-uppercase text-center">Danh sách tuyến đường</h2>
-		        <a th:href="@{/route}" class="btn btn-sm btn-primary">Thêm
+		        <a th:href="@{/route/add}" class="btn btn-sm btn-primary">Thêm
 		            mới</a>
 
 		        	<br>
@@ -20,6 +20,8 @@
 		                    <tr>
 		                        <th>STT</th>
 		                        <th>Tên</th>
+		                        <th>Độ dài ước tính</th>
+		                        <th>Thuộc task</th>
 		                    </tr>
 		                </thead>
 		                <tbody>
@@ -29,6 +31,8 @@
 		                    <tr th:each="item : ${routes}">
 		                        <th th:text="${item.id}"/>
 		                        <td th:text="${item.name}"/>
+		                        <td th:text="${item.length}"/>
+		                        <td th:text="${item.task_id}"/>
 		                        <td><a href="#"
 		                            class="btn btn-sm btn-info btn-round py-1 font-weight-bold">Sửa</a>
 		                            <a th:href="@{/route/delete/{id}(id=${item.id})}"

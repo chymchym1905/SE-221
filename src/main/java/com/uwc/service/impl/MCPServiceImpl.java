@@ -26,7 +26,7 @@ public class MCPServiceImpl implements MCPService{
 		List<MCP> MCPs = MCPRepository.findAll();
 		
 		for (MCP MCP : MCPs) {
-			dtos.add(new MCPDto(MCP.getId(), MCP.getFullness(), MCP.getLatitude(), MCP.getLongtitude() ));
+			dtos.add(new MCPDto(MCP.getId(), MCP.getFullness(), MCP.getLatitude(), MCP.getLongitude() ));
 		}
 		return dtos;
 	}
@@ -34,7 +34,7 @@ public class MCPServiceImpl implements MCPService{
 	@Override
 	public MCPDto findById(int id) {
 		MCP MCP = MCPRepository.findById(id).get();
-		return new MCPDto(MCP.getId(), MCP.getFullness(), MCP.getLatitude(), MCP.getLongtitude());
+		return new MCPDto(MCP.getId(), MCP.getFullness(), MCP.getLatitude(), MCP.getLongitude());
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class MCPServiceImpl implements MCPService{
 		MCP MCP = new MCP();
 		MCP.setFullness(dto.getFullness());
 		MCP.setLatitude(dto.getLatitude());
-		MCP.setLongtitude(dto.getLongtitude());
+		MCP.setLongitude(dto.getLongitude());
 		MCPRepository.save(MCP);
 	}
 
@@ -51,7 +51,7 @@ public class MCPServiceImpl implements MCPService{
 		MCP MCP = MCPRepository.findById(dto.getId()).get();
 		MCP.setFullness(dto.getFullness());
 		MCP.setLatitude(dto.getLatitude());
-		MCP.setLongtitude(dto.getLongtitude());
+		MCP.setLongitude(dto.getLongitude());
 	}
 
 	@Override
@@ -64,7 +64,7 @@ public class MCPServiceImpl implements MCPService{
 		List<MCPDto> dtos = new ArrayList<MCPDto>();
 		List<MCP> MCPs = MCPRepository.search(keyword);
 		for (MCP MCP : MCPs) {
-			dtos.add(new MCPDto(MCP.getId(), MCP.getFullness(), MCP.getLatitude(), MCP.getLongtitude()));
+			dtos.add(new MCPDto(MCP.getId(), MCP.getFullness(), MCP.getLatitude(), MCP.getLongitude()));
 		}		
 			return dtos;
 	}

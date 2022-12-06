@@ -40,7 +40,7 @@ public class Route {
 	*/
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="task_id", insertable = false, updatable = false)
+	@JoinColumn(name="task_id", insertable = false, updatable = false, nullable=true)
 	private Task task;
 	/*
 	@OneToMany(mappedBy = "routes", fetch = FetchType.LAZY)	

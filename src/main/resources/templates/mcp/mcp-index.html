@@ -3,15 +3,15 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{/layout/layout}">
 <head>
-    <title>Vehicle list</title>
+    <title>MCP list</title>
 </head>
 
 <body>
 
  	<section id="admin-content" class="p-3" layout:fragment="content">
 
-		        <h2 class="text-uppercase text-center">Danh sách phương tiện</h2>
-		        <a th:href="@{/vehicle/add}" class="btn btn-sm btn-primary">Thêm
+		        <h2 class="text-uppercase text-center">Danh sách MCP</h2>
+		        <a th:href="@{/mcp/add}" class="btn btn-sm btn-primary">Thêm
 		            mới</a>
 
 		        	<br>
@@ -19,21 +19,19 @@
 		                <thead>
 		                    <tr>
 		                        <th>STT</th>
-		                        <th>Tình trạng xăng dầu</th>
-		                        <th>Mức độ tiêu thụ nhiên liệu</th>
+		                        <th>Độ đầy</th>
 		                    </tr>
 		                </thead>
 		                <tbody>
-		                    <tr th:if="${vehicles.empty}">
-		                        <td colspan="3">Không có bản ghi nào được tìm thấy!</td>
+		                    <tr th:if="${mcps.empty}">
+		                        <td colspan="2">Không có bản ghi nào được tìm thấy!</td>
 		                    </tr>
-		                    <tr th:each="item : ${vehicles}">
+		                    <tr th:each="item : ${mcps}">
 		                        <th th:text="${item.id}"/>
-		                        <td th:text="${item.current_fuel}"/>
-		                        <td th:text="${item.fuel_consump_rate}"/>
+		                        <td th:text="${item.fullness}"/>
 		                        <td><a href="#"
 		                            class="btn btn-sm btn-info btn-round py-1 font-weight-bold">Sửa</a>
-		                            <a th:href="@{/vehicle/delete/{id}(id=${item.id})}"
+		                            <a th:href="@{/mcp/delete/{id}(id=${item.id})}"
 		                            class="btn btn-sm btn-danger btn-round py-1 font-weight-bold">Xóa</a>
 		                        </td>
 		                    </tr>

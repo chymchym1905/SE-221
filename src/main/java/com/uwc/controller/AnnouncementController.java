@@ -11,50 +11,52 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.uwc.dto.VehicleDto;
-import com.uwc.service.VehicleService;
+import com.uwc.dto.AnnouncementDto;
+import com.uwc.service.AnnouncementService;
 
 @Controller
-@RequestMapping("vehicle")
-public class VehicleController {
-	
+@RequestMapping("announcement")
+public class AnnouncementController {
 	@Autowired
-	private VehicleService vehicleService;
+	private AnnouncementService announcementService;
+	
 	@RequestMapping(value = "",method = RequestMethod.GET)
 	public String index(ModelMap model) {
-		List<VehicleDto> listvehicle = vehicleService.findAll();
-		model.addAttribute("vehicles", listvehicle);
-		return "vehicle/vehicle-index";
+		//Lấy User list từ db
+		List<AnnouncementDto> list = announcementService.findAll();
+		// Chuyển tiếp List qua Thymeleaf (user-index.html)
+		model.addAttribute("announcements",list);
+		
+		return "announcement/announcement-index";
 	}
 	
 	@RequestMapping(value = "add",method = RequestMethod.GET)
 	public String add(ModelMap model) {
-		model.addAttribute("vehicle", new VehicleDto());
-		return "vehicle/vehicle-add";
+		model.addAttribute("announcement", new AnnouncementDto());
+		return "announcement/announcement-add";
 	}
 	
 	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public String addPost(ModelMap model, @ModelAttribute("vehicle") VehicleDto vehicle, 
+	public String addPost(ModelMap model, @ModelAttribute("announcement") AnnouncementDto announcement, 
 			BindingResult errors) {
 		// NẾU CÓ LỖI XẢY RA, CHUYỂN TIẾP LẠI VỀ TRANG HIỆN TẠI 
 				// ĐỂ SHOW LỖI LÊN CHO NGƯỜI DÙNG THẤY
 		if (errors.hasErrors()) {
-			return "vehicle/vehicle-add";
+			return "announcement/announcement-add";
 		}
 		try {
-			vehicleService.add(vehicle);
-			return "redirect:/vehicle";
+			announcementService.add(announcement);
+			return "redirect:/announcement";
 		}
 		catch ( Exception e) {
 			model.addAttribute("message", "Thêm mới thất bại");
-			return "vehicle/vehicle-add";
+			return "announcement/announcement-add";
 		}
 	}
 	
-	
 	@RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
 	public String delete(@PathVariable("id") int id) {
-		vehicleService.delete(id);
-		return "redirect:/vehicle";
+		announcementService.delete(id);
+		return "redirect:/announcement";
 	}
 }
