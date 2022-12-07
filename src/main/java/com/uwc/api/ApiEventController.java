@@ -21,7 +21,7 @@ import com.uwc.repository.EventRepository;
 import com.uwc.service.EventService;
 
 @RestController
-public class EventApiController {
+public class ApiEventController {
 	 @Autowired
 	 private EventService eventService;
 	 

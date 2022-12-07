@@ -18,8 +18,9 @@ public class RouteDto {
 	private int id;
 	private String name;
 	private float length;
-	private int task_id; 
-	private Set<MCP> hasMCPs;
+	private int task_id;
+	// temporary set MCPDto -> it VIOLATES SOLID principle
+	private Set<MCPDto> hasMCPs;
 	
 	public RouteDto(int id, String name, float length, int task_id) {
 		super();

@@ -5,8 +5,12 @@
 - Java 17
 - Eclipse Enterprise Edition
 - MySQL Workbench
-## Framework using:
+## Framework and library using:
 - Spring Boot
+- Hibernate
+- jgrapht
+- Swagger API UI
+- Thymeleaf
 ## How to operate the app:
 Step 1: After Installed the requirements above, Open Eclipse and Choose your workplace folder.
 

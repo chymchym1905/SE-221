@@ -10,26 +10,26 @@
 
  	<section id="admin-content" class="p-3" layout:fragment="content">
 
-		        <h2 class="text-uppercase text-center">Danh sách tài khoản</h2>
-		        <a th:href="@{/user/add}" class="btn btn-sm btn-primary">Thêm
-		            mới</a>
+		        <h2 class="text-uppercase text-center">Danh sÃ¡ch tÃ i khoáº£n</h2>
+		        <a th:href="@{/user/add}" class="btn btn-sm btn-primary">ThÃªm
+		            má»›i</a>
 
 		        	<br>
 		            <table class="table table-bordered">
 		                <thead>
 		                    <tr>
 		                        <th>STT</th>
-		                        <th>Họ Tên</th>
+		                        <th>Há»� TÃªn</th>
 		                        <th>Email</th>
 		                        <th>Số ĐT</th>
-		                        <th>Đã nhận nhiệm vụ</th>
+		                        <th>Phân công</th>
 		                        <th>Ngày đăng kí</th>
 		                        <th>Ngày sinh</th>
 		                    </tr>
 		                </thead>
 		                <tbody>
 		                    <tr th:if="${users.empty}">
-		                        <td colspan="7">Không có bản ghi nào được tìm thấy!</td>
+		                        <td colspan="7">KhÃ´ng cÃ³ báº£n ghi nÃ o Ä‘Æ°á»£c tÃ¬m tháº¥y!</td>
 		                    </tr>
 		                    <tr th:each="item : ${users}">
 		                        <th th:text="${item.id}"/>
@@ -39,9 +39,9 @@
 		                        <td th:text="${item.isAvailable}"/>
 		                        <td th:text="${item.regisdate}"/>
 		                        <td th:text="${item.birthday}"/>
-		                        <td><a th:href="@{/user/edit/{id}(id=${item.id})}"
+		                        <td><a href="#"
 		                            class="btn btn-sm btn-info btn-round py-1 font-weight-bold">Sửa</a>
-		                            <a th:href="@{/user/delete/{id}(id=${item.id})}"
+		                            <a th:href="@{#}"
 		                            class="btn btn-sm btn-danger btn-round py-1 font-weight-bold">Xóa</a>
 		                        </td>
 		                    </tr>

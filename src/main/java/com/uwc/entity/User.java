@@ -17,16 +17,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-
-@Getter
-@Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@Data
 @Entity
 @Table(name = "users")
 public class User {
@@ -49,7 +44,7 @@ public class User {
 	private Date birthday;
 	private Date regisdate;
 
-	@Column(name = "role_id")
+	@Column(name = "role_id", nullable=false)
 	private int role_id;
 	
 	/* // old 
@@ -65,8 +60,8 @@ public class User {
 	
 	
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "name", insertable = false, updatable = false)
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "role_id", insertable = false, updatable = false)
 	private Role roles; // done
 	
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -95,6 +90,19 @@ public class User {
 		this.password = password;
 		this.birthday = birthday;
 		this.regisdate = regisdate;
+		this.role_id = role_id;
+	}
+	
+	public User(int id, String username, String email, int phone_number, Boolean isAvailable, String password, int role_id) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.email = email;
+		this.phone_number = phone_number;
+		this.isAvailable = isAvailable;
+		this.password = password;
+		this.birthday = null;
+		this.regisdate = new Date();
 		this.role_id = role_id;
 	}
 

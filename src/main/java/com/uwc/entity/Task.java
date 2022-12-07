@@ -17,15 +17,11 @@ import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@Data
 @Entity
 @Table(name = "tasks")
 public class Task {
@@ -56,12 +52,4 @@ public class Task {
 	
 	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "task")
 	private Vehicle vehicle;
-	
-	public Task(int id, Date start_date, Date end_date, Boolean isComplete) {
-		super();
-		this.id = id;
-		this.start_date = start_date;
-		this.end_date = end_date;
-		this.isComplete = isComplete;
-	}
 }

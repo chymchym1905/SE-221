@@ -7,7 +7,7 @@ import com.uwc.dto.UserDto;
 public interface UserService {
 	List<UserDto> findAll();
 	UserDto findById(int id);
-	UserDto findByUsername(String username);
+	List<UserDto> findByUsername(String username);
 	void add(UserDto dto);
 	void update(UserDto dto);
 	void delete(int id);
