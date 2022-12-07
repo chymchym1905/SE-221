@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 
 import com.uwc.dto.TaskDto;
 import com.uwc.entity.Task;
+import com.uwc.repository.RouteRepository;
 import com.uwc.repository.TaskRepository;
+import com.uwc.repository.UserRepository;
 import com.uwc.service.TaskService;
 
 @Service
@@ -18,6 +20,12 @@ import com.uwc.service.TaskService;
 public class TaskServiceImpl implements TaskService {
 	@Autowired
 	private TaskRepository taskRepository;
+	
+	@Autowired
+	private UserRepository userRepository;
+	
+	@Autowired
+	private RouteRepository routeRepository;
 	
 	@Override
 	public List<TaskDto> findAll() {

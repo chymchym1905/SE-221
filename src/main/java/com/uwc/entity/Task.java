@@ -11,15 +11,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@Data
 @Entity
 @Table(name = "tasks")
 public class Task {
@@ -45,12 +41,4 @@ public class Task {
 	
 	@OneToOne(mappedBy = "task")
 	private Vehicle vehicle;
-	
-	public Task(int id, Date start_date, Date end_date, Boolean isComplete) {
-		super();
-		this.id = id;
-		this.start_date = start_date;
-		this.end_date = end_date;
-		this.isComplete = isComplete;
-	}
 }

@@ -19,7 +19,7 @@ public class RouteDto {
 	private String name;
 	private float length;
 	private int task_id; 
-	private Set<MCP> hasMCPs;
+	private Set<String> hasMCPs;
 	
 	public RouteDto(int id, String name, float length, int task_id) {
 		super();

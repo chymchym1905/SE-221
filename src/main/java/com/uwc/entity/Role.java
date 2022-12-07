@@ -10,9 +10,15 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-
-
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "roles") // ÁNh xạ lớp Role với bảng roles trong db
 public class Role {
@@ -26,28 +32,10 @@ public class Role {
 	@OneToMany(mappedBy = "roles", fetch = FetchType.LAZY)
 	private List<User> users; // done
 	
-	
-	public Role() {}
 
 	public Role(int id, String name) {
 		super();
 		this.id = id;
-		this.name = name;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
 		this.name = name;
 	}
 

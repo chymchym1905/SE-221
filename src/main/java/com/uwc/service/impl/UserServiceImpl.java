@@ -29,8 +29,11 @@ public class UserServiceImpl implements UserService{
 		user.setEmail(dto.getEmail());
 		user.setPassword(BCrypt.hashpw(dto.getPassword(), BCrypt.gensalt(12)));
 	//	user.setPassword(dto.getPassword());
+		user.setIsAvailable(dto.getIsAvailable());
 		user.setPhone_number(dto.getPhone_number());
 		user.setBirthday(dto.getBirthday());
+		user.setRole_id(dto.getRole_id());
+		
 		
 		userRepository.save(user);
 	}
@@ -75,6 +78,7 @@ public class UserServiceImpl implements UserService{
 		user.setPhone_number(dto.getPhone_number());
 		user.setBirthday(dto.getBirthday());
 		user.setRegisdate(dto.getRegisdate());
+		user.setRole_id(dto.getRole_id());
 		userRepository.save(user);
 		
 	}
@@ -104,10 +108,23 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public UserDto findByUsername(String username) {
-		// TODO Auto-generated method stub
+	public List<UserDto> findByUsername(String username) {
 		
-		return null;
+		List<UserDto> dtos = new ArrayList<UserDto>();
+		List<User> users = userRepository.findAll();
+		// 		SOME BUGS HERE --------> FIX IT LATER 
+		for (User user : users) {
+			if (user.getUsername() == username) {
+				dtos.add(new UserDto(user.getId(), user.getUsername(),
+						user.getEmail(),user.getPhone_number() , 
+						user.getIsAvailable(),user.getPassword() , 
+						user.getBirthday(), user.getRegisdate(),
+						user.getRole_id()));
+			}
+			
+		}
+		
+		return dtos;
 	}
 
 }

@@ -32,6 +32,8 @@ public class UserController {
 		// Chuyển tiếp List qua Thymeleaf (user-index.html)
 		model.addAttribute("users",list);
 		
+		//UserDto dto = new UserDto(5,"chuong", "chuong@gmail.com", 901, true, "123", 1);
+		//userService.add(dto);
 		return "user/user-index";
 	}
 	
@@ -49,6 +51,8 @@ public class UserController {
 			BindingResult errors) {
 		// NẾU CÓ LỖI XẢY RA, CHUYỂN TIẾP LẠI VỀ TRANG HIỆN TẠI 
 				// ĐỂ SHOW LỖI LÊN CHO NGƯỜI DÙNG THẤY
+		
+		
 		if (errors.hasErrors()) {
 			return "user/user-add";
 		}
