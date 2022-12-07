@@ -3,6 +3,7 @@ package com.uwc.entity;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -31,6 +32,7 @@ public class Route {
 	private int id;
 	private String name;
 	private float length;
+	@Column(name = "task_id", nullable=true)
 	private int task_id;
 	
 	/*
@@ -40,7 +42,7 @@ public class Route {
 	*/
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="task_id", insertable = false, updatable = false)
+	@JoinColumn(name="task_id", insertable = false, updatable =  false,nullable=true)
 	private Task task;
 	/*
 	@OneToMany(mappedBy = "routes", fetch = FetchType.LAZY)	

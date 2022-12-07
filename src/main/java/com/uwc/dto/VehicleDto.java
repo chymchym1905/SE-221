@@ -12,5 +12,6 @@ import lombok.Setter;
 public class VehicleDto {
 	private int id;
 	private float current_fuel;
+	private float fuel_consump_rate;
 
 }

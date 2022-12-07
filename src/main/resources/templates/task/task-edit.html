@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/layout/layout}">
+<head>
+	<title>Edit Task</title>
+</head>
+
+<body>
+	<section id="admin-content" class="p-3" layout:fragment="content">
+
+				<h2 class="text-uppercase text-center">Chỉnh sửa nhiệm vụ</h2>
+	
+		
+				<form th:action="@{/task/edit/{id}(id=${edittask.id})}" th:object="${edittask}"  method="post">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Ngày bắt đầu</label> 
+								<input type="date" th:field="*{start_date}" class="form-control" />
+								<span class="text-danger" th:if="${#fields.hasErrors('start_date')}" th:errors="*{start_date}"></span>
+							</div>
+							<div class="form-group">
+								<label>Ngày kết thúc</label> 
+								<input type="date" th:field="*{end_date}" class="form-control" />
+								<span class="text-danger" th:if="${#fields.hasErrors('end_date')}" th:errors="*{end_date}"></span>
+							</div>
+
+						</div>
+						
+						
+						<!-- CHƯA LÀM UPDATE TASKID CHO user, task vehicle -->
+						<!-- CHƯA LÀM UPDATE TASKID CHO user, task vehicle -->
+						<!-- CHƯA LÀM UPDATE TASKID CHO user, task vehicle -->
+						<!-- CHƯA LÀM UPDATE TASKID CHO user, task vehicle -->
+						<div class="col-md-6">
+							<div class="form-group">
+									<label>Người thực hiện</label> 
+									<select name="id" id=""
+										class="form-control" multiple>
+										<option th:each="item : ${users}"
+												th:value="${item.id}"
+												th:text="${item.username}">
+										</option>
+										
+									</select>
+								</div>
+								
+								<div class="form-group">
+									<label>Phương tiện</label> 
+									<select name="id" id=""
+										class="form-control">
+										<option th:each="item : ${vehicles}"
+												th:value="${item.id}"
+												th:text="${item.current_fuel}">
+										</option>
+										
+									</select>
+								</div>
+								
+						</div>
+						
+						
+						<div class="col-12 mt-3">
+					
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary m-b-0">Lưu
+									lại</button>
+								<a th:href="@{/task}" class="btn btn-secondary text-white">Quay
+									lại</a>
+							</div>
+						</div>
+					</div>
+				</form>
+	
+	</section>
+
+</body>
+
+</html>

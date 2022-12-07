@@ -29,11 +29,8 @@ public class UserServiceImpl implements UserService{
 		user.setEmail(dto.getEmail());
 		user.setPassword(BCrypt.hashpw(dto.getPassword(), BCrypt.gensalt(12)));
 	//	user.setPassword(dto.getPassword());
-		user.setIsAvailable(dto.getIsAvailable());
 		user.setPhone_number(dto.getPhone_number());
 		user.setBirthday(dto.getBirthday());
-		user.setRole_id(dto.getRole_id());
-		
 		
 		userRepository.save(user);
 	}
@@ -48,7 +45,7 @@ public class UserServiceImpl implements UserService{
 					user.getEmail(),user.getPhone_number() , 
 					user.getIsAvailable(),user.getPassword() , 
 					user.getBirthday(), user.getRegisdate(),
-					user.getRole_id()));
+					user.getRole_id() ));
 		}
 		
 
@@ -62,8 +59,7 @@ public class UserServiceImpl implements UserService{
 		return new UserDto(user.getId(), user.getUsername(),
 				user.getEmail(),user.getPhone_number() , 
 				user.getIsAvailable(),user.getPassword() , 
-				user.getBirthday(), user.getRegisdate(),
-				user.getRole_id());
+				user.getBirthday(), user.getRegisdate(),user.getRole_id());
 	
 	}
 
@@ -78,7 +74,6 @@ public class UserServiceImpl implements UserService{
 		user.setPhone_number(dto.getPhone_number());
 		user.setBirthday(dto.getBirthday());
 		user.setRegisdate(dto.getRegisdate());
-		user.setRole_id(dto.getRole_id());
 		userRepository.save(user);
 		
 	}
@@ -99,8 +94,7 @@ public class UserServiceImpl implements UserService{
 			dtos.add(new UserDto(user.getId(), user.getUsername(),
 					user.getEmail(),user.getPhone_number() , 
 					user.getIsAvailable(),user.getPassword() , 
-					user.getBirthday(), user.getRegisdate(),
-					user.getRole_id()));
+					user.getBirthday(), user.getRegisdate(),user.getRole_id()));
 			
 		}
 		

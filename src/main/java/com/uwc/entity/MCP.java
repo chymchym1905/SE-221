@@ -2,6 +2,7 @@ package com.uwc.entity;
 
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,8 +27,10 @@ public class MCP {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private float fullness;
+	@Column(nullable = true)
 	private float latitude;
-	private float longtitude;
+	@Column(nullable = true)
+	private float longitude;
 	
 	/*
 	@OneToMany(mappedBy = "mcps", fetch = FetchType.LAZY)

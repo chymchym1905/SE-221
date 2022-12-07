@@ -8,7 +8,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import lombok.Data;
+
 @Entity
+@Data
 @Table(name = "vehicles")
 public class Vehicle {
 	
@@ -16,6 +19,7 @@ public class Vehicle {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private float current_fuel;
+	private float fuel_consump_rate;
 	
 	@OneToOne
 	@JoinColumn(name="task_id", insertable = false, updatable = false )
@@ -23,22 +27,5 @@ public class Vehicle {
 
 	public Vehicle() {}
 	
-	public Vehicle(int vehicleID, float current_fuel) {
-		super();
-		this.id = vehicleID;
-		this.current_fuel = current_fuel;
-	}
 
-	public float getCurrent_fuel() {
-		return current_fuel;
-	}
-
-	public void setCurrent_fuel(float current_fuel) {
-		this.current_fuel = current_fuel;
-	}
-
-	public int getId() {
-		return id;
-	}
-	
 }

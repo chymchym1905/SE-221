@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/layout/layout}">
+<head>
+	<title>Edit Vehicle</title>
+</head>
+
+<body>
+	<section id="admin-content" class="p-3" layout:fragment="content">
+
+				<h2 class="text-uppercase text-center">Sửa thông tin phương tiện</h2>
+	
+		
+				<form th:action="@{/vehicle/edit/{id}(id=${editvehicle.id})}" th:object="${editvehicle}"  method="post">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Tình trạng xăng dầu</label> 
+								<input type="text"  th:field="*{current_fuel}" class="form-control"/>
+								<span class="text-danger" th:if="${#fields.hasErrors('current_fuel')}" th:errors="*{current_fuel}"></span>
+							</div>
+							<div class="form-group">
+								<label>Mức độ tiêu thụ nhiên liệu</label> 
+								<input type="text" th:field="*{fuel_consump_rate}" class="form-control" />
+								<span class="text-danger" th:if="${#fields.hasErrors('fuel_consump_rate')}" th:errors="*{fuel_consump_rate}"></span>
+							</div>
+
+						</div>
+						
+						<div class="col-12 mt-3">
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary m-b-0">Lưu
+									lại</button>
+								<a th:href="@{/vehicle}" class="btn btn-secondary text-white">Quay
+									lại</a>
+							</div>
+						</div>
+					</div>
+				</form>
+	
+	</section>
+
+</body>
+
+</html>

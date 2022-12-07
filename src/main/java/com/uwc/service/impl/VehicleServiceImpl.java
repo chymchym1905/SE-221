@@ -27,7 +27,7 @@ public class VehicleServiceImpl implements VehicleService {
 		List<Vehicle> vehicles = vehicleRepository.findAll();
 		
 		for (Vehicle Vehicle : vehicles) {
-			dtos.add(new VehicleDto(Vehicle.getId(), Vehicle.getCurrent_fuel()));
+			dtos.add(new VehicleDto(Vehicle.getId(), Vehicle.getCurrent_fuel(), Vehicle.getFuel_consump_rate()));
 		}
 		return dtos;
 	}
@@ -35,14 +35,14 @@ public class VehicleServiceImpl implements VehicleService {
 	@Override
 	public VehicleDto findById(int id) {
 		Vehicle Vehicle = vehicleRepository.findById(id).get();
-		return new VehicleDto(Vehicle.getId(), Vehicle.getCurrent_fuel());
+		return new VehicleDto(Vehicle.getId(), Vehicle.getCurrent_fuel(), Vehicle.getFuel_consump_rate());
 	}
 
 	@Override
 	public void add(VehicleDto dto) {
 		Vehicle Vehicle = new Vehicle();
 		Vehicle.setCurrent_fuel(dto.getCurrent_fuel());
-		
+		Vehicle.setCurrent_fuel(dto.getFuel_consump_rate());
 		vehicleRepository.save(Vehicle);
 	}
 
@@ -50,6 +50,8 @@ public class VehicleServiceImpl implements VehicleService {
 	public void update(VehicleDto dto) {
 		Vehicle Vehicle = vehicleRepository.findById(dto.getId()).get();
 		Vehicle.setCurrent_fuel(dto.getCurrent_fuel());
+		Vehicle.setFuel_consump_rate(dto.getFuel_consump_rate());
+		vehicleRepository.save(Vehicle);
 	}
 
 	@Override
@@ -62,7 +64,7 @@ public class VehicleServiceImpl implements VehicleService {
 		List<VehicleDto> dtos = new ArrayList<VehicleDto>();
 		List<Vehicle> vehicles = vehicleRepository.search(keyword);
 		for (Vehicle Vehicle : vehicles) {
-			dtos.add(new VehicleDto(Vehicle.getId(), Vehicle.getCurrent_fuel()));
+			dtos.add(new VehicleDto(Vehicle.getId(), Vehicle.getCurrent_fuel(), Vehicle.getFuel_consump_rate()));
 		}		
 			return dtos;
 	}
