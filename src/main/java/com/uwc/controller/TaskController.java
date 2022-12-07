@@ -104,7 +104,7 @@ public class TaskController {
 				// ĐỂ SHOW LỖI LÊN CHO NGƯỜI DÙNG THẤY
 		if (errors.hasErrors()) {
 			task.setId(id);
-			return "task/task-edit";
+			return "task/task-index";
 		}
 		try {
 			taskService.update(task);
