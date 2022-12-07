@@ -55,19 +55,25 @@ public class AutoCalculateMCPsService {
 		}
 		
 		 DijkstraShortestPath<MCPDto, DefaultWeightedEdge> dijkstraAlg =
-		            new DijkstraShortestPath<>(graph);
+		            new DijkstraShortestPath<MCPDto, DefaultWeightedEdge>(graph);
 		 
-	        
+		 	List<MCPDto> shortestPath_dijkstra = dijkstraAlg
+			        .getPath(mcps[0], mcps[1]) // from mcp0 to mcp1
+			        .getVertexList();
+		 	
 	       
 	        BellmanFordShortestPath<MCPDto, DefaultWeightedEdge> bellmanFordShortestPath 
 	        = new BellmanFordShortestPath<MCPDto, DefaultWeightedEdge>(graph);
 	        
-	        List<MCPDto> shortestPath = bellmanFordShortestPath
+	        List<MCPDto> shortestPath_Bellam = bellmanFordShortestPath
 				        .getPath(mcps[0], mcps[1]) // from mcp0 to mcp1
 				        .getVertexList();
 	        
-	        Set<MCPDto> targetMCP = new HashSet<>(shortestPath);
-	        routeDto = new RouteDto(1, "abc", shortestPath.size(), 0, targetMCP);
+	        Set<MCPDto> targetMCP_Dijkstra = new HashSet<>(shortestPath_dijkstra);
+	        Set<MCPDto> targetMCP_Bellam = new HashSet<>(shortestPath_Bellam);
+	        
+	        
+	        routeDto = new RouteDto(1, "abc", shortestPath_Bellam.size(), 0, targetMCP_Dijkstra);
 	        
 	        routeService.add(routeDto);	
 	}
