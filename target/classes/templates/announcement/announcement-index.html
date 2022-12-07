@@ -29,8 +29,7 @@
 		                    <tr th:each="item : ${announcements}">
 		                        <th th:text="${item.id}"/>
 		                        <td  th:text="${item.description}"/>
-		                        <td><a href="#"
-		                            class="btn btn-sm btn-info btn-round py-1 font-weight-bold">Sửa</a>
+		                        <td>
 		                            <a th:href="@{/announcement/delete/{id}(id=${item.id})}"
 		                            class="btn btn-sm btn-danger btn-round py-1 font-weight-bold">Xóa</a>
 		                        </td>
