@@ -52,6 +52,32 @@ public class MCPController {
 		}
 	}
 	
+	@RequestMapping(value = "edit/{id}",method = RequestMethod.GET)
+	public String edit(ModelMap model, @PathVariable("id") int id) {
+		MCPDto mcp =  mcpService.findById(id);
+		model.addAttribute("editmcp", mcp);
+		return "mcp/mcp-edit";
+	}
+	
+	@RequestMapping(value = "edit/{id}", method = RequestMethod.POST)
+	public String editPost(ModelMap model,  @PathVariable("id") int id, MCPDto mcp,
+			BindingResult errors) {
+		// NẾU CÓ LỖI XẢY RA, CHUYỂN TIẾP LẠI VỀ TRANG HIỆN TẠI 
+				// ĐỂ SHOW LỖI LÊN CHO NGƯỜI DÙNG THẤY
+		if (errors.hasErrors()) {
+			mcp.setId(id);
+			return "mcp/mcp-edit";
+		}
+		try {
+			mcpService.update(mcp);
+			return "redirect:/mcp";
+		}
+		catch ( Exception e) {
+			model.addAttribute("message", "Cập nhật thất bại");
+			return "mcp/mcp-edit";
+		}
+	}
+	
 	@RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
 	public String delete(@PathVariable("id") int id) {
 		mcpService.delete(id);

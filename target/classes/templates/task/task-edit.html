@@ -3,16 +3,16 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{/layout/layout}">
 <head>
-	<title>Add Task</title>
+	<title>Edit Task</title>
 </head>
 
 <body>
 	<section id="admin-content" class="p-3" layout:fragment="content">
 
-				<h2 class="text-uppercase text-center">Thêm nhiệm vụ</h2>
+				<h2 class="text-uppercase text-center">Chỉnh sửa nhiệm vụ</h2>
 	
 		
-				<form th:action="@{/task/add}" th:object="${task}"  method="post">
+				<form th:action="@{/task/edit/{id}(id=${edittask.id})}" th:object="${edittask}"  method="post">
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">

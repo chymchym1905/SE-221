@@ -51,6 +51,32 @@ public class VehicleController {
 		}
 	}
 	
+	@RequestMapping(value = "edit/{id}",method = RequestMethod.GET)
+	public String edit(ModelMap model, @PathVariable("id") int id) {
+		VehicleDto vehicle =  vehicleService.findById(id);
+		model.addAttribute("editvehicle", vehicle);
+		return "vehicle/vehicle-edit";
+	}
+	
+	@RequestMapping(value = "edit/{id}", method = RequestMethod.POST)
+	public String editPost(ModelMap model,  @PathVariable("id") int id, VehicleDto vehicle,
+			BindingResult errors) {
+		// NẾU CÓ LỖI XẢY RA, CHUYỂN TIẾP LẠI VỀ TRANG HIỆN TẠI 
+				// ĐỂ SHOW LỖI LÊN CHO NGƯỜI DÙNG THẤY
+		if (errors.hasErrors()) {
+			vehicle.setId(id);
+			return "vehicle/vehicle-edit";
+		}
+		try {
+			vehicleService.update(vehicle);
+			return "redirect:/vehicle";
+		}
+		catch ( Exception e) {
+			model.addAttribute("message", "Cập nhật thất bại");
+			return "vehicle/vehicle-edit";
+		}
+	}
+	
 	
 	@RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
 	public String delete(@PathVariable("id") int id) {

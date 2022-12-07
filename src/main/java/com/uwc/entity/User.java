@@ -69,7 +69,7 @@ public class User {
 	@JoinColumn(name = "name", insertable = false, updatable = false)
 	private Role roles; // done
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinTable(
 		name = "User_Task", 
 		joinColumns = @JoinColumn(name = "user_id"), 

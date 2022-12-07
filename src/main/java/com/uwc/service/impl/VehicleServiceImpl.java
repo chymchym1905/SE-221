@@ -50,7 +50,8 @@ public class VehicleServiceImpl implements VehicleService {
 	public void update(VehicleDto dto) {
 		Vehicle Vehicle = vehicleRepository.findById(dto.getId()).get();
 		Vehicle.setCurrent_fuel(dto.getCurrent_fuel());
-		Vehicle.setCurrent_fuel(dto.getFuel_consump_rate());
+		Vehicle.setFuel_consump_rate(dto.getFuel_consump_rate());
+		vehicleRepository.save(Vehicle);
 	}
 
 	@Override

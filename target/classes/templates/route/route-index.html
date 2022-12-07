@@ -33,7 +33,7 @@
 		                        <td th:text="${item.name}"/>
 		                        <td th:text="${item.length}"/>
 		                        <td th:text="${item.task_id}"/>
-		                        <td><a href="#"
+		                        <td><a th:href="@{/route/edit/{id}(id=${item.id})}"
 		                            class="btn btn-sm btn-info btn-round py-1 font-weight-bold">Sửa</a>
 		                            <a th:href="@{/route/delete/{id}(id=${item.id})}"
 		                            class="btn btn-sm btn-danger btn-round py-1 font-weight-bold">Xóa</a>

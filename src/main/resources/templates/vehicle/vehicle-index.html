@@ -31,7 +31,7 @@
 		                        <th th:text="${item.id}"/>
 		                        <td th:text="${item.current_fuel}"/>
 		                        <td th:text="${item.fuel_consump_rate}"/>
-		                        <td><a href="#"
+		                        <td><a th:href="@{/vehicle/edit/{id}(id=${item.id})}"
 		                            class="btn btn-sm btn-info btn-round py-1 font-weight-bold">Sửa</a>
 		                            <a th:href="@{/vehicle/delete/{id}(id=${item.id})}"
 		                            class="btn btn-sm btn-danger btn-round py-1 font-weight-bold">Xóa</a>

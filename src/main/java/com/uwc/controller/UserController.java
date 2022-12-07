@@ -72,11 +72,12 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "edit/{id}", method = RequestMethod.POST)
-	public String editPost(ModelMap model, @ModelAttribute("edituser") UserDto user,
+	public String editPost(ModelMap model,  @PathVariable("id") int id, UserDto user,
 			BindingResult errors) {
 		// NẾU CÓ LỖI XẢY RA, CHUYỂN TIẾP LẠI VỀ TRANG HIỆN TẠI 
 				// ĐỂ SHOW LỖI LÊN CHO NGƯỜI DÙNG THẤY
 		if (errors.hasErrors()) {
+			user.setId(id);
 			return "user/user-edit";
 		}
 		try {
@@ -84,7 +85,7 @@ public class UserController {
 			return "redirect:/user";
 		}
 		catch ( Exception e) {
-			model.addAttribute("message", "Thêm mới thất bại");
+			model.addAttribute("message", "Cập nhật thất bại");
 			return "user/user-edit";
 		}
 	}
