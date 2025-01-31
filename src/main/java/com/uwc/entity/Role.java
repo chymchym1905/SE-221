@@ -12,17 +12,18 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
+//@Getter
+//@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "roles") // ÁNh xạ lớp Role với bảng roles trong db
-public class Role {
+@Data public class Role {
 	@Id
 	 // Khai báo đây khóa chính
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // Khai báo khóa chính tăng tự động

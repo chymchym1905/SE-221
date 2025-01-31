@@ -22,9 +22,9 @@
 } */
 .sidebar .active {
   padding: 6px 8px 6px 16px;
-  text-decoration: none;
+  text-decoration: underline;
   font-size: 20px;
-  background: blue;
+  transform: scale(1.1);
 }
 
 .sidebar a:hover {
@@ -51,7 +51,15 @@
 }
 
 .col-custom2{
+	padding: 40px;
 	flex:85%;
 	right:0;
+	height: 600px;
 	max-width: 85%;
+}
+
+
+.map{
+	margin: auto;
+	justify-content: center;
 }

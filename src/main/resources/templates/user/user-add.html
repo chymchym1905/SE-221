@@ -9,14 +9,14 @@
 <body>
 	<section id="admin-content" class="p-3" layout:fragment="content">
 
-				<h2 class="text-uppercase text-center">ThÃªm má»›i tÃ i khoáº£n</h2>
+				<h2 class="text-uppercase text-center">Thêm user</h2>
 	
 		
 				<form th:action="@{/user/add}" th:object="${user}"  method="post">
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
-								<label>Họ tên</label> 
+								<label>username</label> 
 								<input type="text" th:field="*{username}" class="form-control"/>
 								<span class="text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
 							</div>
@@ -26,7 +26,7 @@
 								<span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
 							</div>
 							<div class="form-group">
-								<label>Máº­t kháº©u</label> 
+								<label>Mật khẩu</label> 
 								<input type="password" th:field="*{password}" class="form-control" />
 								
 							</div>
@@ -34,7 +34,7 @@
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label>Ä�iá»‡n thoáº¡i</label> 
+								<label>Phone_number</label> 
 								<input type="text" th:field="*{phone_number}" class="form-control" />
 								<span class="text-danger" th:if="${#fields.hasErrors('phone_number')}" th:errors="*{phone_number}"></span>
 							</div>
@@ -59,10 +59,9 @@
 						</div>
 						<div class="col-12 mt-3">
 							<div class="form-group">
-								<button type="submit" class="btn btn-primary m-b-0">LÆ°u
-									láº¡i</button>
+								<button type="submit" class="btn btn-primary m-b-0">Lưu lại</button>
 								<a th:href="@{/user}" class="btn btn-secondary text-white">Quay
-									láº¡i</a>
+									lại</a>
 							</div>
 						</div>
 					</div>

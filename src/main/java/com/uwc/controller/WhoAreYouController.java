@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("whoareyou")
+@RequestMapping("map")
 public class WhoAreYouController {
 	@RequestMapping(value = "",method = RequestMethod.GET)
 	public String index() {
-		return "whoareyou/whoareyou";
+		return "dashboard/createroutemanually";
 	}
 }
