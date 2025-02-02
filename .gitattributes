@@ -1,2 +1,2 @@
-src/main/resources/* linguist-vendored
-target/* linguist-vendored
+**/static/** linguist-vendored
+**/templates/** linguist-vendored
